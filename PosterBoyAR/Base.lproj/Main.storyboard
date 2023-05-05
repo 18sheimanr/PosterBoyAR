@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="PosterBoyAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gtw-iu-VEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iY-w3-TgM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FE-Hk-9v4">
+                                <rect key="frame" x="176" y="621" width="22" height="22"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="pFz-1n-Ccq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Screen Against Preferred Wall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU0-Xq-sgr">
+                                <rect key="frame" x="42" y="170" width="290" height="21.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.76000642123287676" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7iY-w3-TgM" firstAttribute="bottom" secondItem="OAp-ON-s6a" secondAttribute="bottom" id="1oL-90-vfG"/>
+                            <constraint firstItem="7iY-w3-TgM" firstAttribute="top" secondItem="Gtw-iu-VEy" secondAttribute="top" id="96D-6d-jRf"/>
+                            <constraint firstItem="3FE-Hk-9v4" firstAttribute="centerX" secondItem="Gtw-iu-VEy" secondAttribute="centerX" id="KoK-7i-pKO"/>
+                            <constraint firstItem="7iY-w3-TgM" firstAttribute="trailing" secondItem="OAp-ON-s6a" secondAttribute="trailing" id="M7a-t5-c1g"/>
+                            <constraint firstItem="OU0-Xq-sgr" firstAttribute="top" secondItem="OAp-ON-s6a" secondAttribute="top" constant="150" id="Mkr-Au-Ekt"/>
+                            <constraint firstItem="OAp-ON-s6a" firstAttribute="bottom" secondItem="3FE-Hk-9v4" secondAttribute="bottom" constant="24" id="NyQ-bW-sOO"/>
+                            <constraint firstItem="7iY-w3-TgM" firstAttribute="leading" secondItem="OAp-ON-s6a" secondAttribute="leading" id="Se5-Az-On2"/>
+                            <constraint firstItem="OU0-Xq-sgr" firstAttribute="centerX" secondItem="Gtw-iu-VEy" secondAttribute="centerX" id="XSR-Nt-IGg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OAp-ON-s6a"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="instructions" destination="OU0-Xq-sgr" id="c8F-pU-RKA"/>
+                        <outlet property="sceneView" destination="7iY-w3-TgM" id="ahb-OU-x7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>

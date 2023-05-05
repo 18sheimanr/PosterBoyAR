@@ -12,31 +12,41 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    @IBOutlet weak var instructions: UILabel!
     @IBOutlet var sceneView: ARSCNView!
+    let posterSetUp = PosterSetUpModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
+        let scene = SCNScene()
         sceneView.scene = scene
+    }
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        posterSetUp.selectImageForPoster()
+    }
+    
+    func showInstructions(){
+        instructions.isHidden = false
+    }
+    
+    func hideInstructions(){
+        instructions.isHidden = true
+    }
+    
+    func addPoster(_ poster: Poster){
+        print("Adding poster into sceneView")
+        sceneView.scene.rootNode.addChildNode(poster)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Create a session configuration
+        instructions.isHidden = true
+        posterSetUp.setUp(VC: self)
+        sceneView.delegate = self
+        sceneView.session.delegate = posterSetUp.cameraTransformListener
+        sceneView.showsStatistics = true
         let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
         sceneView.session.run(configuration)
     }
     
